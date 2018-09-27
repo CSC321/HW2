@@ -31,7 +31,7 @@ Run your program on list sizes sufficient to demonstrate a reasonable and consis
 ## Part 3: ArrayQueue
 What we would like to do next is compare the LinkedList implementation of a Queue with an ArrayList based one. We could implement our own class from scratch that has an array as a field and provides all the methods required by the Queue interface. There is a simpler way, however. The existing ArrayList class already has methods for adding, removing, and looking at elements in an array. We can use inheritance to extend this class, building on existing methods to implement the required Queue methods. For example, the definition of the remove method in the new class ArrayQueue is provided below:
 
-
+```
   public class ArrayQueue<E> extends ArrayList<E> implements Queue<E> {
       public E remove() {
 	        return super.remove(0);
@@ -39,6 +39,7 @@ What we would like to do next is compare the LinkedList implementation of a Queu
   
       // definitions of the other methods required by Queue
   }
+```
 Complete the definition of the ArrayQueue class so that it fully implements the Queue interface. Then modify your program so that it utilizes an ArrayQueue instead of a LinkedList. Note that this should require change to only one line of code.
 
 Since the remove method for ArrayQueue is O(N), you would expect this version of your program to be significantly slower than the original version. Do your timings confirm this? What would you expect the Big-Oh efficiency of this modified program to be? Is that supported by your timings? Use your program to generate a table of timings and justify your answers based on those timings.
