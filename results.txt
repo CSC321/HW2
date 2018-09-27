@@ -1,0 +1,37 @@
+LinkedList Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 3 msec
+List size: 4000  Time: 5 msec
+List size: 8000  Time: 6 msec
+List size: 16000  Time: 13 msec
+List size: 32000  Time: 18 msec
+List size: 64000  Time: 54 msec
+List size: 128000  Time: 74 msec
+List size: 256000  Time: 197 msec
+List size: 512000  Time: 359 msec
+LinkedList Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 4 msec
+List size: 4000  Time: 5 msec
+List size: 8000  Time: 6 msec
+List size: 16000  Time: 13 msec
+List size: 32000  Time: 18 msec
+List size: 64000  Time: 52 msec
+List size: 128000  Time: 73 msec
+List size: 256000  Time: 196 msec
+List size: 512000  Time: 348 msec
+LinkedList Implementation
+List size: 1000  Time: 1 msec
+List size: 2000  Time: 4 msec
+List size: 4000  Time: 5 msec
+List size: 8000  Time: 6 msec
+List size: 16000  Time: 12 msec
+List size: 32000  Time: 18 msec
+List size: 64000  Time: 52 msec
+List size: 128000  Time: 73 msec
+List size: 256000  Time: 197 msec
+List size: 512000  Time: 348 msec
+
+Do these experimental timings demonstrate the expected patterns for an O(N) 
+algorithm? Justify your answer in the document.
+
