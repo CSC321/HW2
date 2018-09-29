@@ -1,16 +1,22 @@
 package my.queuesandefficiency;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Queue;
 
 /**
- *
+ * The existing ArrayList class already has methods for adding, removing, and 
+ * looking at elements in an array. We can use inheritance to extend this class, 
+ * building on existing methods to implement the required Queue methods
+ * 
  * @author Kikki Beltz
+ * @version September 2018
  */
-public class ArrayQueue<E> extends ArrayList<E> implements Queue<E> {
+public class ArrayQueue<E> extends ArrayList<E> implements Queue<E> {    
     // Retrieves and removes the head of this queue. 
     // This method differs from poll only in that it throws an exception if this
     // queue is empty.
+    @Override
     public E remove() {
         return super.remove(0);
     }
@@ -19,26 +25,44 @@ public class ArrayQueue<E> extends ArrayList<E> implements Queue<E> {
     // immediately without violating capacity restrictions.
     @Override
     public boolean offer(E e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+          return super.add(e);  
+        } catch (IllegalStateException ex) {
+          return false;  
+        }
     }
 
     // Retrieves and removes the head of this queue, or returns null if this queue is empty.
     @Override
     public E poll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (super.size() > 0) {
+            E e = super.get(0);
+            super.remove(0);
+            return e;
+        } else {
+            return null;
+        }
     }
     
     // Retrieves, but does not remove, the head of this queue. This method differs
     // from peek only in that it throws an exception if this queue is empty.
     @Override
     public E element() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return super.get(0);
+        } catch (NoSuchElementException ex) {
+            return null;
+        }
     }
 
     // Retrieves, but does not remove, the head of this queue, or returns null 
-    //if this queue is empty.
+    // if this queue is empty.
     @Override
     public E peek() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (super.size() > 0) {
+            return super.get(0);
+        } else {
+            return null;
+        }
     }
 }

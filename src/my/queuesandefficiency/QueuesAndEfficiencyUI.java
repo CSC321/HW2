@@ -3,12 +3,13 @@ package my.queuesandefficiency;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- *
+ * Class that handles the Queues and Efficiency UI
+ * 
  * @author Kikki Beltz
+ * @version September 2018
  */
 public class QueuesAndEfficiencyUI extends javax.swing.JFrame {
 
@@ -114,9 +115,9 @@ public class QueuesAndEfficiencyUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String initialSize = jTextField1.getText();
         String upperLimit = jTextField2.getText();
-        String output = "LinkedList Implementation\n";
+        String output = "ArrayQueue Implementation\n";
         // Create a new LinkedList Queue
-        Queue<Integer> linkedList = new LinkedList<Integer>();
+        Queue<Integer> linkedList = new ArrayQueue<Integer>();
         int currentSize = Integer.valueOf(initialSize);
         // Add values to the LinkedList Queue
         while (currentSize <= Integer.valueOf(upperLimit)) {

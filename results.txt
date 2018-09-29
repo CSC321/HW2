@@ -1,3 +1,10 @@
+/**
+ * Results document
+ * 
+ * @author Kikki Beltz
+ * @version September 2018
+ */
+
 LinkedList Implementation
 List size: 1000  Time: 2 msec
 List size: 2000  Time: 3 msec
@@ -9,6 +16,7 @@ List size: 64000  Time: 54 msec
 List size: 128000  Time: 74 msec
 List size: 256000  Time: 197 msec
 List size: 512000  Time: 359 msec
+
 LinkedList Implementation
 List size: 1000  Time: 2 msec
 List size: 2000  Time: 4 msec
@@ -20,6 +28,7 @@ List size: 64000  Time: 52 msec
 List size: 128000  Time: 73 msec
 List size: 256000  Time: 196 msec
 List size: 512000  Time: 348 msec
+
 LinkedList Implementation
 List size: 1000  Time: 1 msec
 List size: 2000  Time: 4 msec
@@ -32,6 +41,108 @@ List size: 128000  Time: 73 msec
 List size: 256000  Time: 197 msec
 List size: 512000  Time: 348 msec
 
+LinkedList Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 3 msec
+List size: 4000  Time: 5 msec
+List size: 8000  Time: 6 msec
+List size: 16000  Time: 12 msec
+List size: 32000  Time: 17 msec
+List size: 64000  Time: 49 msec
+List size: 128000  Time: 73 msec
+List size: 256000  Time: 197 msec
+List size: 512000  Time: 345 msec
+List size: 1024000  Time: 734 msec
+List size: 2048000  Time: 2147 msec
+List size: 4096000  Time: 3920 msec
+
+LinkedList Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 3 msec
+List size: 4000  Time: 5 msec
+List size: 8000  Time: 6 msec
+List size: 16000  Time: 12 msec
+List size: 32000  Time: 16 msec
+List size: 64000  Time: 47 msec
+List size: 128000  Time: 71 msec
+List size: 256000  Time: 196 msec
+List size: 512000  Time: 335 msec
+List size: 1024000  Time: 704 msec
+List size: 2048000  Time: 2060 msec
+List size: 4096000  Time: 3817 msec
+List size: 8192000  Time: 12785 msec
+List size: 16384000  Time: 48987 msec
+List size: 32768000  Time: 186429 msec
+
 Do these experimental timings demonstrate the expected patterns for an O(N) 
 algorithm? Justify your answer in the document.
 
+I initially thought so. I graphed the results with a trendline in Excel and it 
+appeared linear until I used a larger N, at which point the results began to look
+more like O(N^2). I looked at the code more closely to determine if I had done
+something incorrectly, but when I calculate the big o of the code I get the following:
+10 * N * 3 * O(1) = 30 * N * O(1) = 30 * O(N) = O(N)
+
+ArrayQueue Implementation
+List size: 1000  Time: 3 msec
+List size: 2000  Time: 7 msec
+List size: 4000  Time: 40 msec
+List size: 8000  Time: 163 msec
+List size: 16000  Time: 670 msec
+List size: 32000  Time: 3626 msec
+List size: 64000  Time: 18266 msec
+List size: 128000  Time: 73184 msec
+
+ArrayQueue Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 10 msec
+List size: 4000  Time: 39 msec
+List size: 8000  Time: 197 msec
+List size: 16000  Time: 799 msec
+List size: 32000  Time: 3545 msec
+List size: 64000  Time: 18351 msec
+List size: 128000  Time: 73503 msec
+
+ArrayQueue Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 10 msec
+List size: 4000  Time: 42 msec
+List size: 8000  Time: 205 msec
+List size: 16000  Time: 868 msec
+List size: 32000  Time: 3903 msec
+List size: 64000  Time: 18479 msec
+List size: 128000  Time: 74623 msec
+
+ArrayQueue Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 9 msec
+List size: 4000  Time: 39 msec
+List size: 8000  Time: 203 msec
+List size: 16000  Time: 651 msec
+List size: 32000  Time: 3180 msec
+List size: 64000  Time: 18427 msec
+List size: 128000  Time: 73438 msec
+
+ArrayQueue Implementation
+List size: 1000  Time: 2 msec
+List size: 2000  Time: 10 msec
+List size: 4000  Time: 41 msec
+List size: 8000  Time: 196 msec
+List size: 16000  Time: 834 msec
+List size: 32000  Time: 3633 msec
+List size: 64000  Time: 18399 msec
+List size: 128000  Time: 73390 msec
+
+Since the remove method for ArrayQueue is O(N), you would expect this version of 
+your program to be significantly slower than the original version. Do your timings 
+confirm this? What would you expect the Big-Oh efficiency of this modified program 
+to be? Is that supported by your timings? Use your program to generate a table 
+of timings and justify your answers based on those timings.
+
+Yes, my timings confirm that this method is significantly slower.
+10 * N * (2 * O(1) + O(N)) = 10N(2*O(1) + O(N)) = 20*O(N) + 10*O(N^2)
+= O(N) + O(N^2) = O(N^2)
+=> I would expect this modified program to have an efficiency of O(N^2)
+
+My timings appear to support this, though I couldn't check with a larger N than
+128000, or it would cause the IDE to freeze.
